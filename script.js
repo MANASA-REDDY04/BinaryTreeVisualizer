@@ -69,6 +69,11 @@ class BinaryTree {
       lineElement.style.top = `${startY}px`;
 
       document.getElementById("treeContainer").appendChild(lineElement);
+
+      nodeElement.style.animation = "none"; // Reset animation
+      setTimeout(() => {
+        nodeElement.style.animation = ""; // Reapply bounce animation
+      }, 10);
     }
 
     this.traverseAndDraw(
