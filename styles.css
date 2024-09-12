@@ -19,6 +19,34 @@ button {
   margin: 5px;
   padding: 10px;
   font-size: 16px;
+  border-radius: 12px; /* Rounded edges */
+  border: 2px solid #8bc34a; /* Bright green border */
+  background-color: #e0f7fa; /* Light cyan background */
+  color: #00796b; /* Teal text */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+  transition: all 0.3s ease; /* Smooth transitions */
+}
+
+input::placeholder {
+  color: #00796b; /* Teal placeholder text */
+}
+
+button:hover {
+  background-color: #ffeb3b; /* Yellow background on hover */
+  color: #ff5722; /* Bright red text on hover */
+  border-color: #ff5722; /* Red border on hover */
+  transform: scale(1.1); /* Slight grow on hover */
+}
+
+h1 {
+  font-family: "Comic Sans MS", sans-serif; /* Fun playful font */
+  color: #ff5722; /* Bright red text */
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2); /* Light shadow on text */
+}
+
+body {
+  background-color: #f1f8e9; /* Light green background */
+  font-family: "Arial", sans-serif;
 }
 
 #treeContainer {
@@ -33,20 +61,56 @@ button {
 .node {
   width: 50px;
   height: 50px;
-  background-color: #2441d3;
+  background-color: #ff5722; /* Bright orange background */
   color: white;
   text-align: center;
   line-height: 50px;
   position: absolute;
-  border-radius: 5px;
+  border-radius: 50%; /* Fully round nodes */
+  font-size: 18px;
+  font-family: "Comic Sans MS", sans-serif; /* Fun font */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  animation: bounceIn 0.5s ease-out; /* Bounce when added */
+}
+
+.node:hover {
+  background-color: #ffeb3b; /* Change to bright yellow on hover */
+  transform: scale(1.1); /* Slightly enlarge the node on hover */
+}
+
+/* Keyframes for bounce animation */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1); /* Start small */
+    opacity: 0; /* Start invisible */
+  }
+  60% {
+    transform: scale(1.2); /* Overshoot */
+    opacity: 1; /* Appear */
+  }
+  100% {
+    transform: scale(1); /* Settle into normal size */
+  }
 }
 
 .line {
   position: absolute;
-  height: 1px;
-  background-color: rgb(247, 85, 31);
-  transform-origin: top left;
-  border-radius: 2px;
+  height: 2px; /* Slightly thicker line */
+  background-color: #00bcd4; /* Playful cyan color */
+  transform-origin: left; /* Draw the line from the left side */
+  border-radius: 5px; /* Rounded edges for the lines */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a slight shadow */
+  width: 0; /* Start with 0 width */
+  transition: width 1s ease-out; /* Smooth width transition */
+}
+
+.line.grow {
+  width: 100%; /* Expands to full width */
+}
+
+.line:hover {
+  background-color: #ffeb3b; /* Line changes color to yellow on hover */
 }
 
 #outputContainer {
@@ -67,6 +131,74 @@ button {
 }
 
 #output {
-  font-size: 14px;
-  color: #333;
+  font-size: 18px;
+  color: #ff6347; /* A playful tomato color */
+  background-color: #f0f8ff; /* Light background for contrast */
+  border: 3px dashed #1e90ff; /* Dashed border for a gameful look */
+  border-radius: 10px; /* Rounded corners */
+  padding: 15px;
+  text-align: center;
+  animation: bounce 1.5s infinite; /* Bounce animation */
+  font-family: "Comic Sans MS", cursive, sans-serif; /* Playful font */
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+#outputHeading {
+  font-size: 22px;
+  color: #ff4500; /* A bold orange color */
+  text-shadow: 1px 1px 2px #000000; /* Subtle shadow for readability */
+  font-family: "Comic Sans MS", cursive, sans-serif; /* Playful font */
+  margin-bottom: 10px;
+  animation: wobble 1.5s infinite; /* Wobble animation */
+}
+
+/* Wobble Animation */
+@keyframes wobble {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg); /* Reduced wobble */
+  }
+  75% {
+    transform: rotate(3deg); /* Reduced wobble */
+  }
+}
+#addNodeButton {
+  background-color: #ff5722; /* Bright orange background */
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px; /* Rounded button */
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#addNodeButton:hover {
+  background-color: #ffeb3b; /* Bright yellow on hover */
+  color: black;
+  transform: scale(1.1); /* Button grows slightly */
+}
+
+/* Keyframe animation for bouncing effect */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Move up */
+  }
 }
